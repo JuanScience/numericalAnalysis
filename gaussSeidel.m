@@ -10,7 +10,7 @@ function answer = gaussSeidel(a, b)
   answer = [x, e];
   flag = true;
   i = 1;
-  while(flag &&  (i < 1000)) #ciclo para llegar al error
+  while(flag &&  (i < 100)) #ciclo para llegar al error
     for j = 1:m #hallar el valor de x y e en la posición (j)
       x_j = b(j, 1);
       for k = 1:m
