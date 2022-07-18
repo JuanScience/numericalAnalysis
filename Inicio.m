@@ -1,6 +1,7 @@
-function answer = Inicio()
+function Inicio()
   clc()
-  disp("\n                  MENÚ PRINCIPAL");
+  disp("\n****************************************************")
+  disp("                  MENÚ PRINCIPAL");
   disp("Escoja uno de los métodos númericos a continuación:\n")
   disp("----------------------------------------------------")
   disp("                 Métodos cerrados")
@@ -29,34 +30,58 @@ function answer = Inicio()
   disp("----------------------------------------------------")
   disp("12. Runge Kutta (Euler Primer grado)")
   disp("13. Runge Kutta (Euler Segundo grado)")
-  disp("14. Runge Kutta (Cuarto orden)")
+  disp("14. Runge Kutta (Tercer orden)")
+  disp("15. Runge Kutta (Cuarto orden)")
+  disp("----------------------------------------------------")
+  disp("0.  Salir")
+  disp("****************************************************")
 
-  #msg = "Ayuda";
-  #helpdlg(msg)
+  try
+    choice = input ("\nEscoja un número: ");
 
-##  prompt = {"Width", "Height", "Depth"};
-##  defaults = {"1.30", "2.30", "3.30"};
-##  rowscols = [1,30; 1,30; 1,30];
-##  dims = inputdlg (prompt, "Enter Box Dimensions", rowscols, defaults);
-##
-##
-##
-##  disp(dims)
-
-  % value of choice
-##  choice = input ("Pick a number, any number! ");
-
-##  switch choice
-##    case 1
-##      printf("Choice is 1\n");
-##    case 2
-##      printf("Choice is 2\n");
-##    case 3
-##      printf("Choice is 3\n");
-##    otherwise
-##      printf("Choice is other than 1, 2, 3\n");
-##  endswitch
+    switch choice
+      case 0
+        last_words;
+      case 1
+        bisectionMenu
+      case 2
+        printf("Choice is 2\n");
+      case 3
+        printf("Choice is 3\n");
+      case 4
+        printf("Choice is 4\n");
+      case 5
+        printf("Choice is 5\n");
+      case 6
+        printf("Choice is 6\n");
+      case 7
+        printf("Choice is 7\n");
+      case 8
+        printf("Choice is 8\n");
+      case 9
+        printf("Choice is 9\n");
+      case 10
+        printf("Choice is 10\n");
+      case 11
+        printf("Choice is 11\n");
+      case 12
+        printf("Choice is 12\n");
+      case 13
+        printf("Choice is 13\n");
+      case 14
+        printf("Choice is 14\n");
+      case 15
+        printf("Choice is 15\n");
+      otherwise
+        printf("Choice is other than 1...15\n");
+    endswitch
+  catch err
+    disp(err)
+    warning(err.identifier, err.message);
+    disp ("Solo se aceptan valores enteros entre el 1 y el 15\n\nPresione una tecla");
+    pause ();
+    Inicio;
+  end_try_catch
 
 endfunction
-
 
