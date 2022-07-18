@@ -4,12 +4,12 @@
 % der_func:   Ingresar como @(d)(función_derivada_a_evaluar)
 % xi:         Punto para comenzar a evaluar la función (X_0)
 
-function answer = newtonRaphson(func, der_func, xi)
+function [titles, table, solution] = newtonRaphson(func, der_func, xi)
   error = 1;
   i = 0;
-  answer = [-1, -2, -3, -4, -5];
+  table = [-1, -2, -3, -4, -5];
 
-  while((error > (1 * 10^(-3))) &&  (i < 50))
+  while((error > (1 * 10^(-3))) &&  (i < 10000))
 
     f_xi = feval(func, xi); #cálculo de f_xi
     derfxi = feval(der_func, xi); #cálculo de f'_xi
@@ -21,11 +21,16 @@ function answer = newtonRaphson(func, der_func, xi)
     endif
     #Ingresa nueva fila a matriz respuesta
     newLine = [i, xi, f_xi, derfxi, error];
-    before = answer;
-    answer = [before; newLine];
+    before = table;
+    table = [before; newLine];
 
     xi = f_xi_1;
     i++;
   endwhile
-  titles = ['[-1 = i]', '[-2 = Xi]', '[-3 = f(Xi)]', "[-4 = f'(Xi)]" '[-5 = Error]']
+  if error > 1e-3
+    solution = 0;
+  else
+    solution = 1;
+  endif
+  titles = ['[-1 = i]', '[-2 = Xi]', '[-3 = f(Xi)]', "[-4 = f'(Xi)]" '[-5 = Error]'];
  endfunction
