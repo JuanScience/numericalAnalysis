@@ -49,7 +49,7 @@ function Inicio()
       case 3
         newtonRaphsonMenu
       case 4
-        printf("Choice is 4\n");
+        fixedPointMenu
       case 5
         printf("Choice is 5\n");
       case 6
