@@ -45,7 +45,7 @@ function Inicio()
       case 1
         bisectionMenu
       case 2
-        printf("Choice is 2\n");
+        falsePositionMenu
       case 3
         printf("Choice is 3\n");
       case 4
