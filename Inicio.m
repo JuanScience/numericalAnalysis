@@ -47,7 +47,7 @@ function Inicio()
       case 2
         falsePositionMenu
       case 3
-        printf("Choice is 3\n");
+        newtonRaphsonMenu
       case 4
         printf("Choice is 4\n");
       case 5
@@ -55,7 +55,7 @@ function Inicio()
       case 6
         printf("Choice is 6\n");
       case 7
-        printf("Choice is 7\n");
+        gaussSeidelMenu
       case 8
         printf("Choice is 8\n");
       case 9
