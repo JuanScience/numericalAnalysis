@@ -55,7 +55,7 @@ function Inicio()
       case 6
         printf("Choice is 6\n");
       case 7
-        printf("Choice is 7\n");
+        gaussSeidelMenu
       case 8
         printf("Choice is 8\n");
       case 9
