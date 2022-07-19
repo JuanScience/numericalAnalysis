@@ -13,6 +13,17 @@ function falsePositionResultMenu(func, a, b, titles, table)
 
   try
     choice = input("Ingrese un valor numérico: ");
+    if strcmp(mat2str(choice), "[]") == 1
+      #CÓDIGO DE (TODO)
+      graficar(func, a, b, 0.001)
+      disp(titles);
+      disp(table);
+      raiz = table(end, 4);
+      disp(cstrcat("\nLa raíz de la función entre los valores ", mat2str(a), " y ", mat2str(b), " es: ", mat2str(raiz)))
+      disp("\nPresione una tecla para continuar...")
+      pause();
+      falsePositionResultMenu(func, a , b, titles, table);
+    endif
     min = mat2str(a);
     max = mat2str(b);
     switch choice
@@ -49,6 +60,7 @@ function falsePositionResultMenu(func, a, b, titles, table)
     endswitch
   catch err
     disp(err)
+    warning(err.identifier, err.message);
     falsePositionResultMenu(func, a , b, titles, table);
   end_try_catch
 endfunction
