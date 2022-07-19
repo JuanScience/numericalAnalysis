@@ -1,7 +1,7 @@
 function last_words ()
   clc();
-  disp ("Adios.");
-  pause (2);
+  disp ("Presione una tecla para salir. Adios.");
+  pause ();
   clc();
 endfunction
 atexit ("last_words");

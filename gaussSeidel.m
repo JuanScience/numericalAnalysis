@@ -3,14 +3,14 @@
 % a:       matriz A (Sin coeficientes)
 % b:       Vector columna de términos independientes
 
-function answer = (a, b)
+function [titles, table, solution] = gaussSeidel(a, b)
   m = size(a, 2); #Número de columnas matriz a
   x = zeros (1, m); #Vector para calcular la iteración de variables
   e = ones(1, m); #Vector para calcular errores de variables
-  answer = [x, e];
+  table = [x, e];
   flag = true;
   i = 1;
-  while(flag &&  (i < 100)) #ciclo para llegar al error
+  while(flag &&  (i < 10000)) #ciclo para llegar al error
     for j = 1:m #hallar el valor de x y e en la posición (j)
       x_j = b(j, 1);
       for k = 1:m
@@ -19,10 +19,10 @@ function answer = (a, b)
         endif
       endfor
       x(j) = x_j / a(j, j);
-      e(j) = abs(100 * (x(j) - answer(i, j)) / x(j));
+      e(j) = abs(100 * (x(j) - table(i, j)) / x(j));
     endfor
 
-    answer = [answer; x, e];
+    table = [table; x, e];
 
     #Valida si todos los errores están por debajo de 1 * 10^(-3)
     ver = 0;
@@ -46,5 +46,11 @@ function answer = (a, b)
   for a = 1:m
     titles = strcat(titles, "[E", int2str(a), "]");
   endfor
-  titles
+
+  if ver != 0
+    solution = 0;
+  else
+    solution = 1;
+  endif
+
 endfunction
