@@ -4,10 +4,10 @@
 % xi:         Punto para comenzar a evaluar la función (X_0)
 % xi_1:       Punto para comenzar a evaluar la función (X_1)
 
-function answer = secant(func, xi, xi_1)
+function [titles, table, solution] = secant(func, xi, xi_1)
   error = 1;
   i = 0;
-  answer = [-1, -2, -3, -4]
+  table = [-1, -2, -3, -4]
 
   while((error > (1 * 10^(-3))) &&  (i < 50))
 
@@ -20,12 +20,18 @@ function answer = secant(func, xi, xi_1)
     endif
     #Ingresa nueva fila a matriz respuesta
     newLine = [i, xi, f_xi, error];
-    before = answer;
-    answer = [before; newLine];
+    before = table;
+    table = [before; newLine];
 
     xi = xi_1;
     xi_1 = f_xi;
     i++;
   endwhile
+
+    if error > 1e-3
+      solution = 0;
+    else
+      solution = 1;
+    endif
   titles = ['[-1 = i]', '[-2 = Xi]', '[-3 = f(Xi)]', '[-7 = Error]']
  endfunction

@@ -51,7 +51,7 @@ function Inicio()
       case 4
         fixedPointMenu
       case 5
-        printf("Choice is 5\n");
+        secantMenu
       case 6
         printf("Choice is 6\n");
       case 7
