@@ -62,6 +62,7 @@ function gaussSeidelResultMenu(nVariables, titles, table)
     endswitch
   catch err
     disp(err)
+    warning(err.identifier, err.message);
     printf("Presione una tecla.");
     pause();
     gaussSeidelResultMenu(nVariables, titles, table)
