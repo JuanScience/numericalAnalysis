@@ -51,13 +51,13 @@ function Inicio()
       case 4
         fixedPointMenu
       case 5
-        printf("Choice is 5\n");
+        secantMenu
       case 6
         printf("Choice is 6\n");
       case 7
         gaussSeidelMenu
       case 8
-        printf("Choice is 8\n");
+        polNewtonDifDivMenu
       case 9
         printf("Choice is 9\n");
       case 10
