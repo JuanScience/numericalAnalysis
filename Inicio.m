@@ -23,7 +23,7 @@ function Inicio()
   disp("                 Ajuste de curvas")
   disp("----------------------------------------------------")
   disp("8.  Interpolación de Newton en diferencias divididas")
-  disp("9. Polinomio de Interpolación de Lagrange")
+  disp("9.  Polinomio de Interpolación de Lagrange")
   disp("10. Regresión polinomial por mínimos cuadrados")
   disp("----------------------------------------------------")
   disp("                  Solución de EDO")
@@ -63,7 +63,7 @@ function Inicio()
       case 10
         printf("Choice is 10\n");
       case 11
-        printf("Choice is 11\n");
+        RK1EulerMenu
       case 12
         printf("Choice is 12\n");
       case 13

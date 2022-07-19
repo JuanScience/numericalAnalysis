@@ -37,7 +37,6 @@ function [titles, table, solution] = bisection(func, a, b)
     solution = 1;
   endif
 
-
   titles = ['[-1 = i]', '[-2 = a]', '[-3 = b]', '[-4 = MN]', '[-5 = f(MN)]','[-6 = signo]', '[-7 = Error]'];
 
  endfunction
