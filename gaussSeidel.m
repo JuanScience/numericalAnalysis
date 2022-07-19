@@ -3,7 +3,7 @@
 % a:       matriz A (Sin coeficientes)
 % b:       Vector columna de términos independientes
 
-function answer = (a, b)
+function answer = gaussSeidel(a, b)
   m = size(a, 2); #Número de columnas matriz a
   x = zeros (1, m); #Vector para calcular la iteración de variables
   e = ones(1, m); #Vector para calcular errores de variables

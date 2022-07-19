@@ -57,7 +57,7 @@ function Inicio()
       case 7
         gaussSeidelMenu
       case 8
-        printf("Choice is 8\n");
+        polNewtonDifDivMenu
       case 9
         printf("Choice is 9\n");
       case 10
