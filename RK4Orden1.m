@@ -8,10 +8,13 @@
 % h:       Delta(x) o paso
 % fin:     Número de veces que se hacen los pasos
 
-function answer = RK4Orden1(f, x0, y0, h, fin)
-  answer = [-1, -2, -3];
-  before = answer;
-  answer = [before; 0, x0, y0];
+function [titles, table, solution]  = RK4Orden1(f, x0, y0, h, fin)
+  table = [-1, -2, -3];
+  before = table;
+  table = [before; 0, x0, y0];
+
+  solution = 1;
+
   for i = 1: fin
     k1 = feval(f, x0, y0);
     k2 = feval(f, (x0 + h/2), (y0 + k1 * h/2));
@@ -20,12 +23,18 @@ function answer = RK4Orden1(f, x0, y0, h, fin)
     fi = (k1 + 2 * k2 + 2 * k3 + k4) / 6;
     x1 = x0 + h;
     y1 = y0 + fi * h;
+
+    if isfinite(x1) == 0 | isfinite(y1) == 0
+      solution = 0;
+      break;
+    endif
+
     newLine = [i, x1, y1];
-    before = answer;
-    answer = [before; newLine];
+    before = table;
+    table = [before; newLine];
     x0 = x1;
     y0 = y1;
    endfor
-   titles = strcat("-1[i] -2[x] -3[y]")
-   plot(answer(2:end,2)', answer(2:end, 3)'), grid on;
+   titles = strcat("-1[i] -2[x] -3[y]");
+   #plot(table(2:end,2)', table(2:end, 3)'), grid on;
 endfunction

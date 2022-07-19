@@ -67,7 +67,7 @@ function Inicio()
       case 12
         RK2EulerMenu
       case 13
-        printf("Choice is 13\n");
+        RK4Orden1Menu
       case 14
         printf("Choice is 14\n");
       case 15
