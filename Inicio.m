@@ -69,9 +69,7 @@ function Inicio()
       case 13
         RK4Orden1Menu
       case 14
-        printf("Choice is 14\n");
-      case 15
-        printf("Choice is 15\n");
+        RK4Orden2Menu
       otherwise
         printf("Choice is other than 1...15\n");
     endswitch

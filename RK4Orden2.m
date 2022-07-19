@@ -9,10 +9,11 @@
 % h:       Delta(x) o paso
 % fin:     Número de veces que se hacen los pasos
 
-function answer = RK4Orden2(dy_dx, dz_dx, x0, y0, z0, h, fin)
-  answer = [-1, -2, -3, -4];
-  before = answer;
-  answer = [before; 0, x0, y0, z0];
+function [titles, table, solution] = RK4Orden2(dy_dx, dz_dx, x0, y0, z0, h, fin)
+  table = [-1, -2, -3, -4];
+  before = table;
+  table = [before; 0, x0, y0, z0];
+  solution = 1;
   for i = 1: fin
     k1y = feval(dy_dx, x0, y0, z0);
     k1z = feval(dz_dx, x0, y0, z0);
@@ -33,15 +34,19 @@ function answer = RK4Orden2(dy_dx, dz_dx, x0, y0, z0, h, fin)
     y1 = y0 + fi_y * h;
     z1 = z0 + fi_z * h;
     newLine = [i, x1, y1, z1];
-    before = answer;
-    answer = [before; newLine];
+    if isfinite(x1) == 0 | isfinite(y1) == 0 | isfinite(z1) == 0
+      solution = 0;
+      break;
+    endif
+    before = table;
+    table = [before; newLine];
     x0 = x1;
     y0 = y1;
     z0 = z1;
    endfor
-   titles = strcat("-1[i] -2[x] -3[y] -4[z]")
-   hold on
-   plot(answer(2:end,2)', answer(2:end, 3)'), grid on; #gráfica x vs y
-   plot(answer(2:end,2)', answer(2:end, 4)'), grid on; #gráfica x vs z
-   hold off
+   titles = strcat("-1[i] -2[x] -3[y] -4[z]");
+   #hold on
+   #plot(answer(2:end,2)', answer(2:end, 3)'), grid on; #gráfica x vs y
+   #plot(answer(2:end,2)', answer(2:end, 4)'), grid on; #gráfica x vs z
+   #hold off
 endfunction
