@@ -53,7 +53,7 @@ function Inicio()
       case 5
         secantMenu
       case 6
-        printf("Choice is 6\n");
+        cramerMenu
       case 7
         gaussSeidelMenu
       case 8
