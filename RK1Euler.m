@@ -21,6 +21,7 @@ function [titles, table, solution] = RK1Euler(f, x0, y0, h, fin)
 
     if isfinite(x1) == 0 | isfinite(y1) == 0
       solution = 0;
+      break;
     endif
 
     newLine = [i, x1, y1];
