@@ -11,14 +11,30 @@ function polNewtonDifDivMenu()
     disp("La segunda fila, los valores de f(x) o la variable dependiente: ")
     a = input ("\nIngrese matriz encerrada entre corchetes: ");
 
-    b = input ("\nIngrese valor de x para reemplazar en la ecuación generada por el método: ");
+    fila = size(a, 1);
+    cola = size(a, 2);
 
-    #VALIDAR ORDEN DE LOS VALORES DE LA PRIMERA FILA
-    #VALIDAR QUE AL MENOS HAYAN DOS PUNTOS
+    if fila != 2 | cola < 2
+      disp("La matríz ingresada debe contener mínimo dos puntos. Presione una tecla.");
+      pause();
+      Inicio;
+    endif
+
+    order = a(1, :);
+
+    for i = 1:cola - 1
+      if order(i) >= order(i + 1)
+        disp("Los términos independientes no están en orden. Presione una tecla")
+        pause();
+        Inicio;
+        break;
+      endif
+    endfor
+
+    b = input ("\nIngrese valor de x para reemplazar en la ecuación generada por el método: ");
 
     [titles, table, fnx, ec] = polNewtonDifDiv(a, b);
     polNewtonDifDivResultMenu(titles, table, fnx, ec);
-
 
   catch err
     disp(err)

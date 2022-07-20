@@ -13,16 +13,43 @@ function polNewtonDifDivResultMenu(titles, table, fnx, ec)
   disp("----------------------------------------------------\n")
 
   try
+    m = size(table, 1);
+    inicio = table(1, 1);
+    final = table(end, 1);
+    x = [];
+    y = [];
+    for i = inicio:(final-inicio)/100:final
+      x = [x, i];
+      r = table(1, 2);
+      for j = 1:(m - 1)
+        aux = table(1, j + 2);
+        for z = 1:j
+          aux = aux * (i - table(z, 1));
+        endfor
+        r = r + aux;
+      endfor
+      y = [y, r];
+    endfor
+
     choice = input("Ingrese un valor numérico: ");
 
+    if strcmp(mat2str(choice), "[]") == 1
+      plot(x, y);
+      disp(titles);
+      disp(table);
+      disp(cstrcat("\nLa ecuación generada por el método es :", ec))
+      disp(cstrcat("\nLa ecuación evaluada en el valor ingresado es: ", mat2str(fnx)))
+      disp("\nPresione una tecla para continuar...")
+      pause();
+      polNewtonDifDivResultMenu(titles, table, fnx, ec)
+    endif
+
     switch choice
+
       case 0
         Inicio;
       case 1
-        a = table(1, 1);
-        b = table(end, 1);
-        #GENERAR VECTORES X Y Y PARA PLOT Y GENERAR PLOT
-        #graficar(a, b, (b - a)/100)
+        plot(x, y);
         polNewtonDifDivResultMenu(titles, table, fnx, ec)
       case 2
         disp(titles);
@@ -31,21 +58,22 @@ function polNewtonDifDivResultMenu(titles, table, fnx, ec)
         pause();
         polNewtonDifDivResultMenu(titles, table, fnx, ec)
       case 3
-        disp(cstrcat("\nLa ecuación generada por el método es :", ec)
+        disp(cstrcat("\nLa ecuación generada por el método es :", ec))
         disp("\nPresione una tecla para continuar...")
         pause();
         polNewtonDifDivResultMenu(titles, table, fnx, ec)
       case 4
-        disp(cstrcat("\nLa ecuación evaluada en el valor ingresado es: ", mat2str(fnx))
+        disp("\nLa ecuación evaluada en el valor ingresado es: ")
+        fnx
         disp("\nPresione una tecla para continuar...")
         pause();
         polNewtonDifDivResultMenu(titles, table, fnx, ec)
       case 5
-        #GRAFICAR
+        plot(x, y);
         disp(titles);
         disp(table);
-        disp(cstrcat("\nLa ecuación generada por el método es :", ec)
-        disp(cstrcat("\nLa ecuación evaluada en el valor ingresado es: ", mat2str(fnx))
+        disp(cstrcat("\nLa ecuación generada por el método es :", ec))
+        disp(cstrcat("\nLa ecuación evaluada en el valor ingresado es: ", mat2str(fnx)))
         disp("\nPresione una tecla para continuar...")
         pause();
         polNewtonDifDivResultMenu(titles, table, fnx, ec)
@@ -56,6 +84,8 @@ function polNewtonDifDivResultMenu(titles, table, fnx, ec)
     endswitch
   catch err
     disp(err)
+    disp("\nPresione una tecla para continuar...")
+    pause();
     polNewtonDifDivResultMenu(titles, table, fnx, ec)
   end_try_catch
 endfunction
