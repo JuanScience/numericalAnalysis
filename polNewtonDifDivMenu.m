@@ -33,12 +33,8 @@ function polNewtonDifDivMenu()
 
     b = input ("\nIngrese valor de x para reemplazar en la ecuación generada por el método: ");
 
-    #VALIDAR ORDEN DE LOS VALORES DE LA PRIMERA FILA
-    #VALIDAR QUE AL MENOS HAYAN DOS PUNTOS
-
     [titles, table, fnx, ec] = polNewtonDifDiv(a, b);
     polNewtonDifDivResultMenu(titles, table, fnx, ec);
-
 
   catch err
     disp(err)
