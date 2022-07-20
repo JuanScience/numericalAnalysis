@@ -1,7 +1,7 @@
-function polNewtonDifDivMenu()
+function regMinCuadradosMenu()
   clc();
   disp("\n****************************************************")
-  disp("                  Método polNewtonDifDiv");
+  disp("                  Método regMinCuadrados");
   disp("Ingrese los valores solicitados:\n")
   disp("----------------------------------------------------")
   try
@@ -32,12 +32,14 @@ function polNewtonDifDivMenu()
     endfor
 
     b = input ("\nIngrese valor de x para reemplazar en la ecuación generada por el método: ");
+    n = input ("\nIngrese valor del grado del polinomio que se quiere generar: ");
 
     #VALIDAR ORDEN DE LOS VALORES DE LA PRIMERA FILA
     #VALIDAR QUE AL MENOS HAYAN DOS PUNTOS
 
-    [titles, table, fnx, ec] = polNewtonDifDiv(a, b);
-    polNewtonDifDivResultMenu(titles, table, fnx, ec);
+    [a_n, b, table, result] = regMinCuadrados(a, b, n);
+
+    regMinCuadradosResultMenu(a_n, b, table, result);
 
 
   catch err

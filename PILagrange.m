@@ -4,9 +4,9 @@
                             # la segunda, f(x) la variable dependiente
 % x:       Constante para reemplazar en la ecuación generada por el método
 
-function answer = PILagrange(a, x)
+function [ table, ec] = PILagrange(a, x)
   m = size(a, 2); #Número de columnas matriz a
-  answer = 0;
+  table = 0;
   ec = strcat("fn", int2str(m - 1), "(x)=");
   for i = 1:m
     li = 1;
@@ -19,11 +19,11 @@ function answer = PILagrange(a, x)
         liDenominador = liDenominador * (a(1, i) - a(1, b));
       endif
     endfor
-    answer = answer + (a(2, i) * li);
+    table = table + (a(2, i) * li);
     if ((i != 1) && (a(2, i) / liDenominador > 0))
       ec = strcat(ec, "+");
     endif
     ec = strcat(ec, mat2str(a(2, i) / liDenominador, 4), litxt);
   endfor
-  ec
+  ec;
 endfunction

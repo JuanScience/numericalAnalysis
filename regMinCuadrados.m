@@ -7,7 +7,7 @@
 % v:       Constante para reemplazar en la ecuación generada por el método
 % n:       Valor del grado del polinomio que se quiere generar
 
-function answer = regMinCuadrados(d, v, n)
+function [a_n, b, table, result] = regMinCuadrados(d, v, n)
   m = size(d, 2); %Número de columnas matriz a
   if (m < n + 1)
     disp("Grado del polinomio menor al número de datos. No se puede calcular");
@@ -23,12 +23,12 @@ function answer = regMinCuadrados(d, v, n)
       endfor
       b(i, 1) = sum(x.^(i - 1).*y);
     endfor
-    a
-    b
-    a_n = (inv(a)*b)'
-    answer = 0;
+    a;
+    b;
+    a_n = (inv(a)*b)';
+    table = 0;
     for i = 1:n + 1
-      answer = answer + (a_n(i) * v ^ (i - 1));
+      table = table + (a_n(i) * v ^ (i - 1));
     endfor
   endif
 
@@ -41,11 +41,11 @@ function answer = regMinCuadrados(d, v, n)
     y1(i) = result;
   endfor
 
-  hold on
-  plot (x, y1, 'linewidth', 2); #gráfica
-  for i = 1:m
-    plot(x(i), y(i), '*', 'Color', 'red');
-  endfor
-  hold off
+##  hold on
+##  plot (x, y1, 'linewidth', 2); #gráfica
+##  for i = 1:m
+##    plot(x(i), y(i), '*', 'Color', 'red');
+##  endfor
+##  hold off
 
 endfunction

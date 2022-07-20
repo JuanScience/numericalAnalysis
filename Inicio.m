@@ -59,9 +59,9 @@ function Inicio()
       case 8
         polNewtonDifDivMenu
       case 9
-        printf("Choice is 9\n");
+        PILagrangeMenu
       case 10
-        printf("Choice is 10\n");
+        regMinCuadradosMenu
       case 11
         RK1EulerMenu
       case 12
@@ -71,7 +71,7 @@ function Inicio()
       case 14
         RK4Orden2Menu
       otherwise
-        printf("Choice is other than 1...15\n");
+        printf("Choice is other than 1...14\n");
     endswitch
   catch err
     disp(err)

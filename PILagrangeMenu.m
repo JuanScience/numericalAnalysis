@@ -1,7 +1,7 @@
-function polNewtonDifDivMenu()
+function PILagrangeMenu()
   clc();
   disp("\n****************************************************")
-  disp("                  Método polNewtonDifDiv");
+  disp("                  Método PILagrange");
   disp("Ingrese los valores solicitados:\n")
   disp("----------------------------------------------------")
   try
@@ -36,8 +36,8 @@ function polNewtonDifDivMenu()
     #VALIDAR ORDEN DE LOS VALORES DE LA PRIMERA FILA
     #VALIDAR QUE AL MENOS HAYAN DOS PUNTOS
 
-    [titles, table, fnx, ec] = polNewtonDifDiv(a, b);
-    polNewtonDifDivResultMenu(titles, table, fnx, ec);
+    [table, ec] = PILagrange(a, b);
+    PILagrangeResultMenu(table, ec);
 
 
   catch err
