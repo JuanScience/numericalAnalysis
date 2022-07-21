@@ -7,7 +7,7 @@
 % v:       Constante para reemplazar en la ecuación generada por el método
 % n:       Valor del grado del polinomio que se quiere generar
 
-function [a, b, a_n, func, eval, x1, y1] = regMinCuadrados(d, v, n)
+function [a, b, a_n, func, eval, x1, y1, x, y] = regMinCuadrados(d, v, n)
   m = size(d, 2); %Número de columnas matriz
   x = d(1,1:end); #Vector x
   y = d(2,1:end); #Vector y
@@ -34,23 +34,17 @@ function [a, b, a_n, func, eval, x1, y1] = regMinCuadrados(d, v, n)
     func = cstrcat(func, sign, mat2str(a_n(i),4),"x^", mat2str(i - 1) );
   endfor
 
-  x1 = ones(1, 100);
-  y1 = ones(1, 100);
+  x1 = [];
+  y1 = [];
   inicio = d(1, 1);
   final = d(1, end);
   for i = inicio:(final-inicio)/100:final
+    x1 = [x1, i];
     result = 0;
     for j = 1:n + 1
       result = result + (a_n(j) * i^(j - 1));
     endfor
-    y1(i) = result;
+    y1 = [y1, result];
   endfor
-
-##  hold on
-##  plot (x, y1, 'linewidth', 2); #gráfica
-##  for i = 1:m
-##    plot(x(i), y(i), '*', 'Color', 'red');
-##  endfor
-##  hold off
 
 endfunction

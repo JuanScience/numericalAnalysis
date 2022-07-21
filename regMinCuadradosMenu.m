@@ -46,9 +46,9 @@ function regMinCuadradosMenu()
       Inicio;
     endif
 
-    [a, b, a_n, func, eval, x1, y1] = regMinCuadrados(d, v, n);
+    [a, b, a_n, func, eval, x1, y1, x, y] = regMinCuadrados(d, v, n);
 
-    regMinCuadradosResultMenu(a, b, a_n, func, eval, x1, y1);
+    regMinCuadradosResultMenu(a, b, a_n, func, eval, x1, y1, x, y);
 
   catch err
     disp(err)
