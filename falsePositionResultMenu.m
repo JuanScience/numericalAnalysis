@@ -12,10 +12,10 @@ function falsePositionResultMenu(func, a, b, titles, table)
   disp("----------------------------------------------------\n")
 
   try
+
     choice = input("Ingrese un valor numérico: ");
     if strcmp(mat2str(choice), "[]") == 1
-      #CÓDIGO DE (TODO)
-      graficar(func, a, b, 0.001)
+      graficar(func, a, b, (b - a) / 100)
       disp(titles);
       disp(table);
       raiz = table(end, 4);
@@ -26,11 +26,12 @@ function falsePositionResultMenu(func, a, b, titles, table)
     endif
     min = mat2str(a);
     max = mat2str(b);
+
     switch choice
       case 0
         Inicio;
       case 1
-        graficar(func, a, b, 0.001)
+        graficar(func, a, b, (b - a) / 100)
         falsePositionResultMenu(func, a , b, titles, table);
       case 2
         disp(titles);
@@ -45,7 +46,7 @@ function falsePositionResultMenu(func, a, b, titles, table)
         pause();
         falsePositionResultMenu(func, a , b, titles, table);
       case 4
-        graficar(func, a, b, 0.001)
+        graficar(func, a, b, (b - a) / 100)
         disp(titles);
         disp(table);
         raiz = table(end, 4);

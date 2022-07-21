@@ -8,10 +8,17 @@ function [titles, table, solution] = falsePosition(func, a, b)
   error = 1;
   mnAnterior = 1;
   i = 0;
+  titles = ['[-1 = i]', '[-2 = a]', '[-3 = b]', '[-4 = MN]', '[-5 = f(MN)]','[-6 = signo]', '[-7 = Error]'];
   table = [-1, -2, -3, -4, -5, -6, -7];
 
   while((error > (1 * 10^(-3))) &&  (i < 10000))
     mn = ((a * feval(func,b)) - (b * feval(func,a)))/(feval(func,b) - feval(func,a)); #cálculo del punto medio
+    if mn == 0
+      solution = 0;
+      disp("Error no se puede calcular. Presione una tecla para continuar")
+      pause();
+      break;
+    endif
     f_mn = feval(func, mn);
     sign = feval(func, a) * f_mn;
     if(i ~= 0)
@@ -19,6 +26,12 @@ function [titles, table, solution] = falsePosition(func, a, b)
     else
       error = 100;
     endif
+
+    if isfinite(mn) == 0 | isfinite(f_mn) == 0 | isfinite(sign) == 0 | isfinite(error) == 0
+      solution = 0;
+      break;
+    endif
+
     #Ingresa nueva fila a matriz respuesta
     newLine = [i, a, b, mn, f_mn, sign, error];
     before = table;
@@ -32,12 +45,10 @@ function [titles, table, solution] = falsePosition(func, a, b)
     i++;
   endwhile
 
-   if error > 1e-3
-      solution = 0;
-    else
-      solution = 1;
-    endif
+  if error > 1e-3
+    solution = 0;
+  else
+    solution = 1;
+  endif
 
-  #xlswrite('bisection.xlsx', answer);
-  titles = ['[-1 = i]', '[-2 = a]', '[-3 = b]', '[-4 = MN]', '[-5 = f(MN)]','[-6 = signo]', '[-7 = Error]'];
  endfunction

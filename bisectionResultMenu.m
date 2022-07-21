@@ -15,7 +15,7 @@ function bisectionResultMenu(func, a, b, titles, table)
     choice = input("Ingrese un valor numérico: ");
 
     if strcmp(mat2str(choice), "[]") == 1
-      graficar(func, a, b, 0.0001)
+      graficar(func, a, b, (b - a) / 100)
       disp(titles);
       disp(table);
       raiz = table(end, 4);
@@ -31,7 +31,7 @@ function bisectionResultMenu(func, a, b, titles, table)
       case 0
         Inicio;
       case 1
-        graficar(func, a, b, 0.0001)
+        graficar(func, a, b, (b - a) / 100)
         bisectionResultMenu(func, a , b, titles, table);
       case 2
         disp(titles);
@@ -46,7 +46,7 @@ function bisectionResultMenu(func, a, b, titles, table)
         pause();
         bisectionResultMenu(func, a , b, titles, table);
       case 4
-        graficar(func, a, b, 0.0001)
+        graficar(func, a, b, (b - a) / 100)
         disp(titles);
         disp(table);
         raiz = table(end, 4);
@@ -61,6 +61,8 @@ function bisectionResultMenu(func, a, b, titles, table)
     endswitch
   catch err
     disp(err)
-    bisectionResultMenu(func, a , b, titles, table);
+    printf("Presione una tecla.");
+    pause();
+    Inicio
   end_try_catch
 endfunction
