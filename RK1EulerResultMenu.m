@@ -44,7 +44,7 @@ function RK1EulerResultMenu(titles, table)
       otherwise
         printf("Escoja un valor entero entre 0 y 3. Presione una tecla.");
         pause();
-        bisectionResultMenu(func, a , b, titles, table);
+        RK1EulerResultMenu(titles, table);
     endswitch
   catch err
     disp(err)

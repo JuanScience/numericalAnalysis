@@ -32,7 +32,7 @@ function PILagrangeMenu()
     endfor
 
     b = Inf;
-    while (isfinite(mn) == 0)
+    while (isfinite(b) == 0)
       b = input ("\nIngrese valor de x para reemplazar en la ecuación generada por el método: ");
     endwhile
 

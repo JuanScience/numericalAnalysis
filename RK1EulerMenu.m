@@ -28,6 +28,7 @@ function RK1EulerMenu()
 
     [titles, table, solution] = RK1Euler(func, x0, y0, h, fin);
 
+
     if solution == 1
       RK1EulerResultMenu(titles, table);
     else
