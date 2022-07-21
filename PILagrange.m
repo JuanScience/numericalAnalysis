@@ -4,7 +4,7 @@
                             # la segunda, f(x) la variable dependiente
 % x:       Constante para reemplazar en la ecuación generada por el método
 
-function [ table, ec] = PILagrange(a, x)
+function [table, ec] = PILagrange(a, x)
   m = size(a, 2); #Número de columnas matriz a
   table = 0;
   ec = strcat("fn", int2str(m - 1), "(x)=");

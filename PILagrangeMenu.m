@@ -33,11 +33,8 @@ function PILagrangeMenu()
 
     b = input ("\nIngrese valor de x para reemplazar en la ecuación generada por el método: ");
 
-    #VALIDAR ORDEN DE LOS VALORES DE LA PRIMERA FILA
-    #VALIDAR QUE AL MENOS HAYAN DOS PUNTOS
-
     [table, ec] = PILagrange(a, b);
-    PILagrangeResultMenu(table, ec);
+    PILagrangeResultMenu(a, table, ec);
 
 
   catch err

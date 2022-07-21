@@ -1,59 +1,70 @@
-function PILagrangeResultMenu( table, ec)
+function PILagrangeResultMenu(a, table, ec)
   clc()
   disp("****************************************************")
-  disp("                  Resultados PILagrange")
+  disp("                Resultados PILagrange")
   disp("Escoja uno de las opciones númericas a continuación:\n")
   disp("----------------------------------------------------")
   disp("1.  Gráfica")
   disp("2.  Valor x reemplazado")
-  disp("3.  EcuaciónSolución")
-  disp("4.  Solución")
-  disp("5.  Todo")
+  disp("3.  Ecuación Solución")
+  disp("4.  Todo")
   disp("0.  Salir")
   disp("----------------------------------------------------\n")
 
   try
-    choice = input("Ingrese un valor numérico: ");
+    x = [];
+    y = [];
+    inicio = a(1, 1);
+    final = a(1, end);
+    for i = inicio:(final-inicio)/100:final
+      x = [x, i];
+      y = [y, PILagrange(a, i)];
+    endfor
 
+    choice = input("Ingrese un valor numérico: ");
+    if strcmp(mat2str(choice), "[]") == 1
+      plot(x, y);
+      disp("\nLa ecuación evaluada en el valor ingresado es: ");
+      disp(table)
+      disp(cstrcat("\nLa ecuación generada por el método es :", ec))
+      disp("\nPresione una tecla para continuar...")
+      pause();
+      PILagrangeResultMenu(a, table, ec)
+    endif
     switch choice
       case 0
         Inicio;
       case 1
-        a = table(1, 1);
-        b = table(end, 1);
-        #GENERAR VECTORES X Y Y PARA PLOT Y GENERAR PLOT
-        #graficar(a, b, (b - a)/100)
-        PILagrangeResultMenu( table, ec)
+        plot(x, y);
+        PILagrangeResultMenu(a, table, ec)
       case 2
-        disp(table);
-        disp("Presione una tecla para continuar...")
+        disp("\nLa ecuación evaluada en el valor ingresado es: ");
+        disp(table)
+        disp("\nPresione una tecla para continuar...")
         pause();
-        PILagrangeResultMenu( table, ec)
+        PILagrangeResultMenu(a, table, ec)
       case 3
         disp(cstrcat("\nLa ecuación generada por el método es :", ec))
         disp("\nPresione una tecla para continuar...")
         pause();
-        PILagrangeResultMenu( table, ec)
+        PILagrangeResultMenu(a, table, ec)
       case 4
-        disp(cstrcat("\nLa ecuación evaluada en el valor ingresado es: ", mat2str(fnx)))
-        disp("\nPresione una tecla para continuar...")
-        pause();
-        PILagrangeResultMenu( table, ec)
-      case 5
-        #GRAFICAR
-        disp(table);
+        plot(x, y);
+        disp("\nLa ecuación evaluada en el valor ingresado es: ");
+        disp(table)
         disp(cstrcat("\nLa ecuación generada por el método es :", ec))
-        disp(cstrcat("\nLa ecuación evaluada en el valor ingresado es: ", mat2str(fnx)))
         disp("\nPresione una tecla para continuar...")
         pause();
-        PILagrangeResultMenu( table, ec)
+        PILagrangeResultMenu(a, table, ec)
       otherwise
-        printf("Escoja un valor entero entre 0 y 5. Presione una tecla.");
+        printf("Escoja un valor entero entre 0 y 4. Presione una tecla.");
         pause();
-        PILagrangeResultMenu( table, ec)
+        PILagrangeResultMenu(a, table, ec)
     endswitch
   catch err
     disp(err)
-    PILagrangeResultMenu( table, ec)
+    printf("Presione una tecla.");
+    pause();
+    Inicio
   end_try_catch
 endfunction
