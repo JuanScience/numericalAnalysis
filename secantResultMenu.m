@@ -60,6 +60,7 @@ function secantResultMenu(func, titles, table)
     warning(err.identifier, err.message);
     disp("Presione una tecla para continuar")
     pause()
+    clear()
     Inicio
   end_try_catch
 endfunction

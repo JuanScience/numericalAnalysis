@@ -45,8 +45,5 @@ function [titles, table, solution] = RK4Orden2(dy_dx, dz_dx, x0, y0, z0, h, fin)
     z0 = z1;
    endfor
    titles = strcat("-1[i] -2[x] -3[y] -4[z]");
-   #hold on
-   #plot(answer(2:end,2)', answer(2:end, 3)'), grid on; #gráfica x vs y
-   #plot(answer(2:end,2)', answer(2:end, 4)'), grid on; #gráfica x vs z
-   #hold off
+
 endfunction

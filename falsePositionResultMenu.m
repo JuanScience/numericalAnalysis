@@ -62,6 +62,8 @@ function falsePositionResultMenu(func, a, b, titles, table)
   catch err
     disp(err)
     warning(err.identifier, err.message);
+    pause()
+    clear()
     Inicio
   end_try_catch
 endfunction

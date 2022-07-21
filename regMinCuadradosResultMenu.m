@@ -94,6 +94,7 @@ function regMinCuadradosResultMenu(a, b, a_n, func, eval, x1, y1, x, y)
     disp(err)
     disp("Presione un tecla para continuar.")
     pause()
+    clear()
     Inicio;
   end_try_catch
 endfunction

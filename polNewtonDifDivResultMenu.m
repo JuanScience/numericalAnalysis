@@ -18,6 +18,7 @@ function polNewtonDifDivResultMenu(titles, table, fnx, ec)
     final = table(end, 1);
     x = [];
     y = [];
+
     for i = inicio:(final-inicio)/100:final
       x = [x, i];
       r = table(1, 2);
@@ -85,7 +86,8 @@ function polNewtonDifDivResultMenu(titles, table, fnx, ec)
   catch err
     disp(err)
     disp("\nPresione una tecla para continuar...")
-    pause();
-    polNewtonDifDivResultMenu(titles, table, fnx, ec)
+    pause()
+    clear()
+    Inicio
   end_try_catch
 endfunction

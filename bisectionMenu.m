@@ -5,7 +5,12 @@ function bisectionMenu()
   disp("Ingrese los valores solicitados:\n")
   disp("----------------------------------------------------")
   try
-    a = input ("\nIngrese el límite inferior: ");
+
+    a = Inf;
+    while (isfinite(a) == 0)
+      a = input ("\nIngrese el límite inferior: ");
+    endwhile
+
     b = a;
     while b <= a
       b = input ("\nIngrese el límite superior: ");
@@ -39,6 +44,7 @@ function bisectionMenu()
     warning(err.identifier, err.message);
     disp ("Error en el ingreso de sus valores. Presione una tecla");
     pause ();
+    clear()
     Inicio
   end_try_catch
 

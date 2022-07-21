@@ -68,6 +68,7 @@ function RK4Orden2ResultMenu(titles, table)
     disp(err)
     disp("Presione una tecla para continuar...")
     pause()
-    RK4Orden2ResultMenu(func, a , b, titles, table);
+    clear()
+    Inicio
   end_try_catch
 endfunction

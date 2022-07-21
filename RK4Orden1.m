@@ -36,5 +36,5 @@ function [titles, table, solution]  = RK4Orden1(f, x0, y0, h, fin)
     y0 = y1;
    endfor
    titles = strcat("-1[i] -2[x] -3[y]");
-   #plot(table(2:end,2)', table(2:end, 3)'), grid on;
+
 endfunction

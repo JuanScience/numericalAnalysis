@@ -58,7 +58,8 @@ function newtonRaphsonResultMenu(func, titles, table)
   catch err
     disp(err)
     disp("\nPresione una tecla para continuar.")
-    pause();
-    newtonRaphsonResultMenu(func, titles, table)
+    pause()
+    clear()
+    Inicio
   end_try_catch
 endfunction

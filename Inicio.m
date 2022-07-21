@@ -1,5 +1,6 @@
 function Inicio()
   clc()
+  clear()
   disp("\n****************************************************")
   disp("                  MENÚ PRINCIPAL");
   disp("Escoja uno de los métodos númericos a continuación:\n")
@@ -71,13 +72,14 @@ function Inicio()
       case 14
         RK4Orden2Menu
       otherwise
-        printf("Choice is other than 1...14\n");
+        printf("Escoja números entre 1...14\n");
     endswitch
   catch err
     disp(err)
     warning(err.identifier, err.message);
-    disp ("Solo se aceptan valores enteros entre el 1 y el 15\n\nPresione una tecla");
-    pause ();
+    disp ("Solo se aceptan valores enteros entre el 1 y el 14\n\nPresione una tecla");
+    pause()
+    clear()
     Inicio;
   end_try_catch
 

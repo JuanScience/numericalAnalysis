@@ -68,6 +68,7 @@ function RK2EulerResultMenu(titles, table)
     disp(err)
     disp("Presione una tecla para continuar...")
     pause()
-    RK2EulerResultMenu(func, a , b, titles, table);
+    clear()
+    Inicio
   end_try_catch
 endfunction

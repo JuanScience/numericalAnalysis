@@ -50,6 +50,7 @@ function RK4Orden1ResultMenu(titles, table)
     disp(err)
     disp("El método no converge. Presione una tecla")
     pause()
-    RK4Orden1ResultMenu(func, a , b, titles, table);
+    clear()
+    Inicio
   end_try_catch
 endfunction

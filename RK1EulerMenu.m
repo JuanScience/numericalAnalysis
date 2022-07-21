@@ -40,7 +40,8 @@ function RK1EulerMenu()
     disp(err)
     warning(err.identifier, err.message);
     disp ("Error en el ingreso de sus valores. Presione una tecla");
-    pause ();
+    pause()
+    clear()
     Inicio
   end_try_catch
 

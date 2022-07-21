@@ -63,6 +63,7 @@ function bisectionResultMenu(func, a, b, titles, table)
     disp(err)
     printf("Presione una tecla.");
     pause();
+    clear()
     Inicio
   end_try_catch
 endfunction

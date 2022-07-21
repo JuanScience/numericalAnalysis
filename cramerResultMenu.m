@@ -83,6 +83,7 @@ function cramerResultMenu(a, b)
     warning(err.identifier, err.message);
     printf("Presione una tecla.");
     pause();
+    clear()
     Inicio
   end_try_catch
 endfunction

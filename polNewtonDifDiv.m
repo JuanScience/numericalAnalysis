@@ -28,4 +28,12 @@ function [titles, table, fnx, ec] = polNewtonDifDiv(a, x)
     endfor
     fnx = fnx + aux;
   endfor
+
+  if isfinite(fnx) == 0
+    disp ("No existe solución.\n\nPresione una tecla");
+    pause()
+    clear()
+    Inicio;
+  endif
+
 endfunction

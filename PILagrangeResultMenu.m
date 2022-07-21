@@ -64,7 +64,8 @@ function PILagrangeResultMenu(a, table, ec)
   catch err
     disp(err)
     printf("Presione una tecla.");
-    pause();
+    pause()
+    clear()
     Inicio
   end_try_catch
 endfunction

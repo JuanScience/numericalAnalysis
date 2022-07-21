@@ -31,17 +31,20 @@ function PILagrangeMenu()
       endif
     endfor
 
-    b = input ("\nIngrese valor de x para reemplazar en la ecuación generada por el método: ");
+    b = Inf;
+    while (isfinite(mn) == 0)
+      b = input ("\nIngrese valor de x para reemplazar en la ecuación generada por el método: ");
+    endwhile
 
     [table, ec] = PILagrange(a, b);
     PILagrangeResultMenu(a, table, ec);
-
 
   catch err
     disp(err)
     warning(err.identifier, err.message);
     disp ("Error en el ingreso de sus valores. Presione una tecla");
-    pause ();
+    pause()
+    clear()
     Inicio
   end_try_catch
 

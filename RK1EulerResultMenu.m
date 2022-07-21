@@ -48,6 +48,8 @@ function RK1EulerResultMenu(titles, table)
     endswitch
   catch err
     disp(err)
-    bisectionResultMenu(func, a , b, titles, table);
+    pause()
+    clear()
+    Inicio
   end_try_catch
 endfunction
