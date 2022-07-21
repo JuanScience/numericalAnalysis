@@ -13,6 +13,7 @@ function newtonRaphsonResultMenu(func, titles, table)
 
   try
     choice = input("Ingrese un valor numérico: ");
+    raiz = mat2str(table(end, 2));
 
     if strcmp(mat2str(choice), "[]") == 1
       graficar(func, table(end, 2) - 5, table(end, 2) + 5, 0.01)
@@ -24,7 +25,6 @@ function newtonRaphsonResultMenu(func, titles, table)
       newtonRaphsonResultMenu(func, titles, table)
     endif
 
-    raiz = mat2str(table(end, 2));
     switch choice
       case 0
         Inicio;
@@ -47,7 +47,7 @@ function newtonRaphsonResultMenu(func, titles, table)
         disp(titles);
         disp(table);
         disp(cstrcat("\nLa raíz calculada es: ", raiz))
-        disp("\nPresione una tecla para continuar...")
+        disp("\nPresione una tecla para continuar.")
         pause();
         newtonRaphsonResultMenu(func, titles, table)
       otherwise
@@ -57,6 +57,8 @@ function newtonRaphsonResultMenu(func, titles, table)
     endswitch
   catch err
     disp(err)
+    disp("\nPresione una tecla para continuar.")
+    pause();
     newtonRaphsonResultMenu(func, titles, table)
   end_try_catch
 endfunction

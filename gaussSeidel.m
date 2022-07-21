@@ -11,6 +11,7 @@ function [titles, table, solution] = gaussSeidel(a, b)
   flag = true;
   i = 1;
   while(flag &&  (i < 10000)) #ciclo para llegar al error
+
     for j = 1:m #hallar el valor de x y e en la posición (j)
       x_j = b(j, 1);
       for k = 1:m
@@ -20,6 +21,12 @@ function [titles, table, solution] = gaussSeidel(a, b)
       endfor
       x(j) = x_j / a(j, j);
       e(j) = abs(100 * (x(j) - table(i, j)) / x(j));
+
+      if isfinite(x(j)) == 0 | isfinite(e(j)) == 0
+        solution = 0;
+        flag = false;
+        break;
+      endif
     endfor
 
     table = [table; x, e];

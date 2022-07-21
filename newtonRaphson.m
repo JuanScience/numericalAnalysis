@@ -7,6 +7,7 @@
 function [titles, table, solution] = newtonRaphson(func, der_func, xi)
   error = 1;
   i = 0;
+  titles = ['[-1 = i]', '[-2 = Xi]', '[-3 = f(Xi)]', "[-4 = f'(Xi)]" '[-5 = Error]'];
   table = [-1, -2, -3, -4, -5];
 
   while((error > (1 * 10^(-3))) &&  (i < 10000))
@@ -19,6 +20,12 @@ function [titles, table, solution] = newtonRaphson(func, der_func, xi)
     else
       error = 100;
     endif
+
+    if isfinite(f_xi) == 0 | isfinite(derfxi) == 0 | isfinite(error) == 0
+      solution = 0;
+      break;
+    endif
+
     #Ingresa nueva fila a matriz respuesta
     newLine = [i, xi, f_xi, derfxi, error];
     before = table;
@@ -32,5 +39,4 @@ function [titles, table, solution] = newtonRaphson(func, der_func, xi)
   else
     solution = 1;
   endif
-  titles = ['[-1 = i]', '[-2 = Xi]', '[-3 = f(Xi)]', "[-4 = f'(Xi)]" '[-5 = Error]'];
  endfunction

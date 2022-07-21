@@ -5,10 +5,10 @@ function secantMenu()
   disp("Ingrese los valores solicitados:\n")
   disp("----------------------------------------------------")
   try
-    a = input ("\nIngrese el límite inferior: ");
+    a = input ("\nIngrese el primer punto: ");
     b = a;
     while b <= a
-      b = input ("\nIngrese el límite superior: ");
+      b = input ("\nIngrese el segundo punto: ");
     endwhile
     disp("\nIngrese la función con el siguiente formato: @(x)f(x)");
     func = 0;
@@ -16,20 +16,12 @@ function secantMenu()
       func = input ("Ingrese la función: ");
     endwhile
 
-    sign = feval(func, a) * feval(func, b);
-
-    if(sign < 0)
-      [titles, table, solution] = secant(func, a, b);
-      if solution == 1
-        secantResultMenu(func, titles, table);
-      else
-        disp("El método no converge. Presione una tecla")
-        pause()
-        Inicio
-      endif
-
+    sign = feval(func, a) * feval(func, b); #evalúa puntos y función
+    [titles, table, solution] = secant(func, a, b);
+    if solution == 1
+      secantResultMenu(func, titles, table);
     else
-      disp("No existen raices entre los valores ingresados. Presione una tecla")
+      disp("El método no converge. Presione una tecla")
       pause()
       Inicio
     endif

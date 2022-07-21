@@ -7,9 +7,10 @@
 function [titles, table, solution] = secant(func, xi, xi_1)
   error = 1;
   i = 0;
+  titles = ['[-1 = i]', '[-2 = Xi]', '[-3 = f(Xi)]', '[-7 = Error]'];
   table = [-1, -2, -3, -4]
 
-  while((error > (1 * 10^(-3))) &&  (i < 50))
+  while((error > (1 * 10^(-3))) &&  (i < 10000))
 
     f_xi = xi_1 - ( ((xi - xi_1) * feval(func, xi_1)) / (feval(func, xi) - feval(func, xi_1))); #cálculo de X_n+1
 
@@ -18,6 +19,12 @@ function [titles, table, solution] = secant(func, xi, xi_1)
     else
       error = 100;
     endif
+
+    if isfinite(f_xi) == 0 | isfinite(error) == 0
+      solution = 0;
+      break;
+    endif
+
     #Ingresa nueva fila a matriz respuesta
     newLine = [i, xi, f_xi, error];
     before = table;
@@ -28,10 +35,10 @@ function [titles, table, solution] = secant(func, xi, xi_1)
     i++;
   endwhile
 
-    if error > 1e-3
-      solution = 0;
-    else
-      solution = 1;
-    endif
-  titles = ['[-1 = i]', '[-2 = Xi]', '[-3 = f(Xi)]', '[-7 = Error]']
+  if error > 1e-3
+    solution = 0;
+  else
+    solution = 1;
+  endif
+
  endfunction

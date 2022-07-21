@@ -14,7 +14,7 @@ function gaussSeidelMenu()
     fila = size(a, 1);
     cola = size(a, 2);
 
-    if  fila != cola | fila < 2
+    if fila != cola | fila < 2
       disp("La matríz ingresada debe ser cuadrada y mayor a 2x2. Presione una tecla.");
       pause();
       Inicio;
@@ -36,7 +36,7 @@ function gaussSeidelMenu()
 
     [a, b] = diagonalDominante(a, b); #Verifica y transforma a diagonalDominante
 
-    disp("Las matrices ingresadas quedan así; ")
+    disp("Las matrices ingresadas quedan así: ")
     disp(a);
     disp("");
     disp(b);

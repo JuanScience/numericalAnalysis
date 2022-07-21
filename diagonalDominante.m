@@ -11,11 +11,11 @@ function [A_diag_dom, B] = diagonalDominante(a, b)
 
   # Se verifica si la matriz es diagonalmente dominante
   if (all(A_sum_row(:) < abs(Diag(:))) == true && all((A_sum_col(:)) < abs(Diag(:))) == true)
-    disp('La matriz es diagonalmente dominante \n')
+    disp('La matriz es diagonalmente dominante\n')
   elseif A_sum_row(:) < abs(Diag(:))
-    disp('La matriz es diagonalmente dominante por filas \n')
+    disp('La matriz es diagonalmente dominante por filas\n')
   elseif A_sum_col(:) < abs(Diag(:))
-    disp('La matriz es diagonalmente dominante por columnas \n')
+    disp('La matriz es diagonalmente dominante por columnas\n')
   else
     result = false;
   endif
@@ -26,12 +26,13 @@ function [A_diag_dom, B] = diagonalDominante(a, b)
     if length(unique(max_pos_row)) ~= length(max_pos_row)
       A_diag_dom = a;
       B = b;
-    else
       disp('La matriz no es diagonalmente dominante \n')
+    else
       for i = 1:row
         A_diag_dom(i,:) = a(max_pos_row(i),:);
         B(i, 1) = b(max_pos_row(i));
       endfor
+      disp('La matriz se ha intentado reordenar\n')
     endif
   endif
 endfunction

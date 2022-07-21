@@ -15,18 +15,18 @@ function cramerResultMenu(a, b)
 
     if strcmp(mat2str(choice), "[]") == 1
       disp("Determinante de matriz a")
-        da = det(a)
-        m = size(a, 2); #Número de columnas matriz a
-        for i = 1:m #bucle para generar las matrices d
-          d = a;
-          d(:, i) = b
-          disp(cstrcat("DX",mat2str(i), " = "));
-          D = det(d)
-          answer = ['X', num2str(i), ' = ', num2str(D / da)]
-        endfor
-        disp("Presione una tecla para continuar...")
-        pause();
-        cramerResultMenu(a, b)
+      da = det(a)
+      m = size(a, 2); #Número de columnas matriz a
+      for i = 1:m #bucle para generar las matrices d
+        d = a;
+        d(:, i) = b
+        disp(cstrcat("DX", mat2str(i), " = "));
+        D = det(d)
+        answer = ['X', num2str(i), ' = ', num2str(D / da)]
+      endfor
+      disp("Presione una tecla para continuar...")
+      pause();
+      cramerResultMenu(a, b)
     endif
 
     switch choice
@@ -39,7 +39,7 @@ function cramerResultMenu(a, b)
         for i = 1:m #bucle para generar las matrices d
           d = a;
           d(:, i) = b
-          disp(cstrcat("DX",mat2str(i), " = "));
+          disp(cstrcat("DX", mat2str(i), " = "));
           D = det(d)
         endfor
         disp("Presione una tecla para continuar...")
@@ -65,7 +65,7 @@ function cramerResultMenu(a, b)
         for i = 1:m #bucle para generar las matrices d
           d = a;
           d(:, i) = b
-          disp(cstrcat("DX",mat2str(i), " = "));
+          disp(cstrcat("DX", mat2str(i), " = "));
           D = det(d)
           answer = ['X', num2str(i), ' = ', num2str(D / da)]
         endfor
@@ -83,6 +83,6 @@ function cramerResultMenu(a, b)
     warning(err.identifier, err.message);
     printf("Presione una tecla.");
     pause();
-    cramerResultMenu(a, b)
+    Inicio
   end_try_catch
 endfunction

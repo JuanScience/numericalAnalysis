@@ -35,8 +35,6 @@ function cramerMenu()
       Inicio;
     endif
 
-    #[a, b] = diagonalDominante(a, b); #Verifica y transforma a diagonalDominante
-
     disp("Las matrices ingresadas quedan así; ")
     disp(a);
     disp("");
@@ -44,12 +42,10 @@ function cramerMenu()
     disp("Presione una tecla para continuar.");
     pause();
 
-    #[table, solution] = cramer(a, b);
-
     if det(a) != 0
       cramerResultMenu(a, b);
     else
-      disp("El método no tiene solución. Presione una tecla")
+      disp("El método no tiene solución. Determinante = 0. Presione una tecla")
       pause()
       Inicio
     endif

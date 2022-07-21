@@ -6,6 +6,7 @@
 function [titles, table, solution]= fixedPoint(func, a)
   error = 1;
   i = 0;
+  titles = ['[-1 = i]', '[-2 = a]', '[-3 = f(a)]', '[-7 = Error]']
   table = [-1, -2, -3, -4]
 
   while((error > (1 * 10^(-3))) &&  (i < 10000))
@@ -15,6 +16,12 @@ function [titles, table, solution]= fixedPoint(func, a)
     else
       error = 100;
     endif
+
+    if isfinite(f_a) == 0 | isfinite(error) == 0
+      solution = 0;
+      break;
+    endif
+
     #Ingresa nueva fila a matriz respuesta
     newLine = [i, a, f_a, error];
     before = table;
@@ -24,11 +31,10 @@ function [titles, table, solution]= fixedPoint(func, a)
     i++;
   endwhile
 
-    if error > 1e-3
+  if error > 1e-3
     solution = 0;
   else
     solution = 1;
   endif
 
-  titles = ['[-1 = i]', '[-2 = a]', '[-3 = f(a)]', '[-7 = Error]']
  endfunction

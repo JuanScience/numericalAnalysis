@@ -16,7 +16,6 @@ function secantResultMenu(func, titles, table)
     raiz = mat2str(table(end, 2));
 
     if strcmp(mat2str(choice), "[]") == 1
-      #CÓDIGO DE (TODO)
       graficar(func, table(end, 2) - 5, table(end, 2) + 5, 0.01)
       disp(titles);
       disp(table);
@@ -61,6 +60,6 @@ function secantResultMenu(func, titles, table)
     warning(err.identifier, err.message);
     disp("Presione una tecla para continuar")
     pause()
-    secantResultMenu(func, titles, table)
+    Inicio
   end_try_catch
 endfunction
